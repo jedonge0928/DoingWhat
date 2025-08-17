@@ -31,15 +31,14 @@ import ReviewModal from "../../components/modal/ReviewModal";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../store/productSlice";
 import { addItem } from "../../store/cartSlice";
-import CartModal from "../../components/modal/CartModal";
+import { openModal } from "../../store/modalSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.items);
 
   const [selectedReview, setSelectedReview] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [reviewIsOpen, setReviewIsOpen] = useState(false);
 
   const slideRef = useRef(null);
   const isDown = useRef(false);
@@ -57,15 +56,6 @@ export default function Home() {
     }
     fetchData();
   }, [dispatch]);
-
-  useEffect(() => {
-    if (modal) {
-      const timer = setTimeout(() => {
-        setModal(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [modal]);
 
   const handleMouseDown = (e) => {
     isDown.current = true;
@@ -94,7 +84,7 @@ export default function Home() {
 
   const handleAddToCart = (item) => {
     dispatch(addItem(item));
-    setModal(true);
+    dispatch(openModal());
   };
 
   return (
@@ -166,11 +156,10 @@ export default function Home() {
                     <button
                       onClick={() => {
                         handleAddToCart(item);
-                        setModal(true);
                       }}
                     >
                       장바구니
-                    </button>{" "}
+                    </button>
                     <Link to={`/shop/${item.id}/detail`}>자세히보기</Link>
                   </ButtonBox>
                   <SlideImgBg></SlideImgBg>
@@ -191,8 +180,7 @@ export default function Home() {
                   )}
                 </TotalPrice>
               </SlideItem>
-            ))}{" "}
-            {modal && <CartModal onClose={() => setModal(false)} />}
+            ))}
           </Slide>
         </div>
       </SlideTrack>
@@ -207,7 +195,7 @@ export default function Home() {
             key={item.id}
             onClick={() => {
               setSelectedReview(item);
-              setIsOpen(true);
+              setReviewIsOpen(true);
             }}
           >
             <img
@@ -219,9 +207,9 @@ export default function Home() {
       </Review>
       <ReviewModal
         review={selectedReview}
-        isOpen={isOpen}
+        isOpen={reviewIsOpen}
         onClose={() => {
-          setIsOpen(false);
+          setReviewIsOpen(false);
           setSelectedReview(null);
         }}
       />

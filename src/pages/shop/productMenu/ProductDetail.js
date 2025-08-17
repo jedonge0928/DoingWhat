@@ -1,7 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { TabDetailDiv, TabDetailImg } from "../ShopDetail.styles";
+import styled from "styled-components";
 
+const TabDetailDiv = styled.div`
+  max-width: 1000px;
+  box-sizing: border-box;
+  margin: 0 auto;
+`;
+const TabDetailImg = styled.img`
+  width: 100%;
+  box-sizing: border-box;
+`;
 export default function ProductDetail() {
   const { id } = useParams();
   const products = useSelector((state) => state.product.items);

@@ -198,26 +198,3 @@ export const GnbLink = styled(NavLink)`
     box-shadow: 0 0 0 2px rgba(110, 162, 223, 0.15) inset;
   }
 `;
-
-/*product detail */
-
-export const TabDetailDiv = styled.div`
-  max-width: 1000px;
-  box-sizing: border-box;
-  margin: 0 auto;
-`;
-export const TabDetailImg = styled.img`
-  width: 100%;
-  box-sizing: border-box;
-`;
-/*product info */
-export const InfoProduct = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 1.5rem;
-
-  @media ${({ theme }) => theme.device.xs} {
-    font-size: 0.9rem;
-  }
-`;

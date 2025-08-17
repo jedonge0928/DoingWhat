@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ShopPage = styled.div`
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 10px;
   box-sizing: border-box;
   max-width: 1920px;
@@ -16,6 +16,7 @@ export const ShopPage = styled.div`
 
 export const ShopTitle = styled.h2`
   font-size: 1.7rem;
+  font-weight: bold;
   padding: 10px;
   margin-bottom: 20px;
   @media ${({ theme }) => theme.device.xs} {
@@ -88,8 +89,8 @@ export const ProductsList = styled.div`
 export const ListItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: calc((100% - 20px) / 3);
+  gap: 15px;
+  width: calc((100% - 40px) / 4);
 
   @media ${({ theme }) => theme.device.ms} {
     width: calc((100% - 20px) / 2);
@@ -112,7 +113,6 @@ export const TitleBox = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 1.1rem;
 
   @media ${({ theme }) => theme.device.ms} {
     font-size: 1rem;
@@ -123,6 +123,7 @@ export const TitleBox = styled.div`
 `;
 export const ItemTitle = styled.p`
   font-weight: bold;
+  font-size: 1.3rem;
   box-sizing: border-box;
 `;
 export const EngTitle = styled.p`

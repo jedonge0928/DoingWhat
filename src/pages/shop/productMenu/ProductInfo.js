@@ -1,8 +1,24 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { InfoProduct } from "../ShopDetail.styles";
-import { ProductInfoImg, ProductInfoImgDiv } from "./productQna.styles";
+import styled from "styled-components";
+
+const InfoProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.5rem;
+
+  @media ${({ theme }) => theme.device.xs} {
+    font-size: 0.9rem;
+  }
+`;
+
+const ProductInfoImgDiv = styled.div`
+  width: 100%;
+`;
+const ProductInfoImg = styled.img`
+  width: 100%;
+`;
 
 export default function ProductInfo() {
   const { id } = useParams();

@@ -25,12 +25,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../store/productSlice";
 import { addItem } from "../../store/cartSlice";
 import { Link } from "react-router-dom";
-import CartModal from "../../components/modal/CartModal";
+import { openModal } from "../../store/modalSlice";
 
 export default function Shop() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.items ?? []);
-  const [modal, setModal] = useState(false);
   const [searchItem, setSearchItem] = useState("");
   const [selectCategory, setSelectCategory] = useState("ALL");
 
@@ -57,17 +56,9 @@ export default function Shop() {
     fetchData();
   }, [dispatch]);
 
-  useEffect(() => {
-    if (modal) {
-      const timer = setTimeout(() => {
-        setModal(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [modal]);
   const handleAddToCart = (item) => {
     dispatch(addItem(item));
-    setModal(true);
+    dispatch(openModal());
   };
 
   return (
@@ -128,8 +119,7 @@ export default function Shop() {
             </CartButton>
           </ListItem>
         ))}
-      </ProductsList>{" "}
-      {modal && <CartModal onClose={() => setModal(false)} />}
+      </ProductsList>
     </ShopPage>
   );
 }

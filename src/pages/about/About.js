@@ -1,18 +1,205 @@
-import React from "react";
-import {
-  AboutVideo,
-  BackgroundImg01,
-  BackgroundImg02,
-  BackgroundImg03,
-  BackgroundText,
-  BrandMiniText,
-  BrandText,
-  ExperienceBox,
-  Section03,
-  Section03Keyword,
-  Section03TextBox,
-  TextBox01,
-} from "./About.styles";
+import styled, { css } from "styled-components";
+
+const flexCenterCol = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const container = css`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const containerWide = css`
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+`;
+
+const textCenter = css`
+  text-align: center;
+`;
+
+const bgNoRepeatPos = (url, pos = "center center") => css`
+  background-image: url(${url});
+  background-repeat: no-repeat;
+  background-position: ${pos};
+`;
+
+const BackgroundImg01 = styled.div`
+  ${flexCenterCol};
+  ${containerWide};
+  margin: 60px auto;
+  min-height: 700px;
+  gap: 30px;
+  font-size: 1.5rem;
+  color: white;
+  line-height: 2.4rem;
+  ${bgNoRepeatPos(
+    `${process.env.PUBLIC_URL}/img/about_img11.jpg`,
+    "bottom 45% center"
+  )};
+  background-size: cover;
+`;
+
+const BackgroundText = styled.div`
+  ${flexCenterCol};
+  font-size: 0.8rem;
+`;
+
+const TextBox01 = styled.div`
+  ${flexCenterCol};
+  margin: 50px 0 150px;
+`;
+
+const BrandText = styled.h2`
+  ${textCenter};
+  font-size: 2rem;
+  line-height: 4.5rem;
+  margin: ${({ margin }) => margin || "0 0 100px"};
+  color: ${({ color }) => color || "black"};
+
+  span {
+    color: #81c3fc;
+  }
+
+  @media ${({ theme }) => theme.device.ms} {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+`;
+
+const BrandMiniText = styled.p`
+  ${textCenter};
+  ${container};
+  max-width: 426px;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  color: #6b6b6b;
+`;
+
+const BackgroundImg02 = styled.div`
+  ${flexCenterCol};
+  margin: 60px auto;
+  ${bgNoRepeatPos(
+    `${process.env.PUBLIC_URL}/img/about_img02.jpg`,
+    "bottom 45% center"
+  )};
+  background-size: cover;
+  width: 100%;
+  min-height: 1000px;
+  gap: 30px;
+  font-size: 1.2rem;
+  color: white;
+  line-height: 2rem;
+  opacity: 1;
+
+  @media ${({ theme }) => theme.device.ms} {
+    display: none;
+  }
+`;
+
+const AboutVideo = styled.video`
+  display: block;
+  ${container};
+  max-width: 1200px;
+  height: 700px;
+  margin: 0 auto;
+  border-radius: 5px;
+  object-fit: cover;
+
+  @media ${({ theme }) => theme.device.ms} {
+    object-fit: contain;
+  }
+`;
+
+const Section03 = styled.div`
+  min-height: 700px;
+
+  img {
+    display: block;
+    ${container};
+    max-width: 1200px;
+    margin: 0 auto 100px;
+    width: 100%;
+  }
+`;
+
+const Section3TextBox = styled.div`
+  margin: 250px auto 200px;
+
+  @media ${({ theme }) => theme.device.ms} {
+    margin: 50px auto;
+  }
+`;
+
+const Section03Keyword = styled.div`
+  ${container};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BackgroundImg03 = styled.div`
+  ${flexCenterCol};
+  position: relative;
+  margin-bottom: 50px;
+
+  img {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 700px;
+    display: block;
+    object-fit: cover;
+    opacity: 0.1;
+
+    @media ${({ theme }) => theme.device.ms} {
+      display: none;
+    }
+  }
+`;
+
+const ExperienceBox = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  font-size: 1.2rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 2.2rem;
+
+    @media ${({ theme }) => theme.device.ms} {
+      font-size: 0.8rem;
+      line-height: 1.7rem;
+    }
+  }
+
+  span {
+    color: #1981e5;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    @media ${({ theme }) => theme.device.ms} {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.ms} {
+    position: static;
+    margin-top: 40px;
+  }
+`;
 
 export default function About() {
   return (
@@ -29,6 +216,7 @@ export default function About() {
           <span>TIMING FOR GROOMING</span>
         </BackgroundText>
       </BackgroundImg01>
+
       <TextBox01>
         <BrandText>
           <span>두잉왓</span>은 현대 <span>남성</span>들이 가지고 있는{" "}
@@ -52,6 +240,7 @@ export default function About() {
           세련된 취향과 명쾌한 멋부림의 즐거움을 선사합니다.
         </BrandMiniText>
       </TextBox01>
+
       <BackgroundImg02>
         <AboutVideo muted autoPlay loop>
           <source
@@ -60,19 +249,21 @@ export default function About() {
           />
         </AboutVideo>
       </BackgroundImg02>
+
       <BrandText>DOING WHAT'S VALUE</BrandText>
       <TextBox01>
         <BrandMiniText>
           남자의 모든 다양한 아름다움과
           <br />
-          남들과는 다른 이색적인 개성을 존중하며,열린 사고로 고객, 그리고 세상과
-          소통하기 위해 경험을 만들어주고사회적 메세지를 전달하는 캠페인을
-          도모하고자 합니다.
+          남들과는 다른 이색적인 개성을 존중하며, 열린 사고로 고객, 그리고
+          세상과 소통하기 위해 경험을 만들어주고 사회적 메세지를 전달하는
+          캠페인을 도모하고자 합니다.
         </BrandMiniText>
       </TextBox01>
+
       <Section03>
         <img src={process.env.PUBLIC_URL + "/img/about_img03.jpg"} alt="" />
-        <Section03TextBox>
+        <Section3TextBox>
           <BrandText>BRAND'S KEYWORD</BrandText>
           <BrandText color="#81c3fc" margin="0 0 50px">
             호기심이 관심으로, 도전이 자신감으로
@@ -82,8 +273,9 @@ export default function About() {
             <BrandText>#2 Challenge [도전]</BrandText>
             <BrandText>#3 Confidence [자신감]</BrandText>
           </Section03Keyword>
-        </Section03TextBox>
+        </Section3TextBox>
       </Section03>
+
       <BrandText margin="60px 0 0">BRAND EXPERIENCE</BrandText>
       <BackgroundImg03>
         <img src={process.env.PUBLIC_URL + "/img/about_img05.jpg"} alt="" />
@@ -119,6 +311,7 @@ export default function About() {
           </div>
         </ExperienceBox>
       </BackgroundImg03>
+
       <BrandText>
         이 모든 과정에서 두잉왓은 고객에게 최상의 제품을 선보이기 위해
         노력합니다.

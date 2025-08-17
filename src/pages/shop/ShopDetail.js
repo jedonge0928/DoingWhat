@@ -15,12 +15,11 @@ import {
 } from "./ShopDetail.styles";
 import { DetailProductGnb } from "../../contants/navigation";
 import { Outlet, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../store/productSlice";
+
 import { addItem } from "../../store/cartSlice";
-import { closeModal, openModal } from "../../store/modalSlice";
-import CartModal from "../../components/modal/CartModal";
+import { openModal } from "../../store/modalSlice";
 
 export default function ShopDetail() {
   const [count, setCount] = useState(1);
@@ -28,29 +27,12 @@ export default function ShopDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const isOpen = useSelector((state) => state.cartModal.isOpen);
   const products = useSelector((state) => state.product.items ?? []);
   const product = products.find((item) => String(item.id) === id);
-  useEffect(() => {
-    if (products.length === 0) {
-      dispatch(setProducts());
-    }
-  }, [dispatch, products.length]);
-
-  useEffect(() => {
-    if (isOpen) {
-      const timer = setTimeout(() => {
-        dispatch(closeModal());
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, dispatch]);
-
-  if (products.length === 0) {
-    return <div>상품 불러오는 중...</div>;
-  }
 
   if (!product) return <div>상품을 찾을 수 없습니다.</div>;
+
+  console.log(product, "Sadasdsad");
 
   const handleAddToItem = () => {
     dispatch(addItem({ ...product, count }));
@@ -124,7 +106,6 @@ export default function ShopDetail() {
         ))}
       </ProductGnb>
       <Outlet />
-      {isOpen && <CartModal onClose={() => dispatch(closeModal())} />}
     </ShopDetailPage>
   );
 }
