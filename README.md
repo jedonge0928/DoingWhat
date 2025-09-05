@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# doing-What 홈페이지 리뉴얼 프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 프로젝트 이름 & 한 줄 소개  
+**doing-What** — React와 Redux Toolkit을 활용한 쇼핑몰 홈페이지 리뉴얼 프로젝트
 
-## Available Scripts
+## 2. 프로젝트 설명
+- **프로젝트 배경:**  
+  기존 홈페이지를 최신 React 환경으로 리뉴얼하며 사용자 경험을 개선하고, 효율적인 상태 관리를 도입하기 위해 시작했습니다.
 
-In the project directory, you can run:
+- **주요 기능 요약:**  
+  - React Router를 이용한 SPA 페이지 라우팅  
+  - Redux Toolkit으로 전역 상태 관리 (제품 목록, 장바구니, 모달)  
+  - 장바구니 및 수량 조절 기능 구현  
+  - 직접 만든 JSON 파일을 fetch하여 제품 데이터 관리  
 
-### `npm start`
+- **목적 및 사용 사례:**  
+사용자 친화적인 쇼핑몰 UI를 반응형으로 구현하고(styled-component), React와 Redux Toolkit을 활용한 전역 상태 관리를 통해 효율적인 데이터 흐름과 기능 구현을 목표로 합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3. 사용법
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+/shop 페이지에서 제품 목록 확인
 
-### `npm test`
+각 상품 클릭 시 상세 페이지 진입 후 수량 조절 및 장바구니 담기 가능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+/cart 페이지에서 장바구니 내역 확인 및 수량 수정 가능
 
-### `npm run build`
+/modal 창 전역상태관리
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 4. 기술 스택
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Redux Toolkit
 
-### `npm run eject`
+React Router DOM
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Bootstrap  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JSON fetch API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 5. 폴더 구조
+/src
+  /components    # 재사용 가능한 UI 컴포넌트들 (버튼, 레이아웃 내부 요소, 모달 등 작은 단위 컴포넌트)
+  /constants    # 상수값 관리 (네비게이션 메뉴)
+  /data         # 샘플 데이터, 더미 데이터, JSON 형태의 제품 리스트 등 실제 데이터 모음
+  /layouts      # 페이지 공통 레이아웃 컴포넌트 (헤더, 푸터, 사이드바 등 페이지 전체 틀)
+  /store        # Redux 관련 코드 (slice, reducer, store 설정 파일 등 상태 관리 코드)
+  /pages        # 라우팅에 대응하는 페이지 단위 컴포넌트 (홈, 샵, 장바구니 등 주요 화면)
+  App.js        # 앱 최상위 컴포넌트. 라우팅 설정과 전역 Provider(스토어, 테마 등) 연결 담당
+  /useViewport  #반응형 디자인을 위해 화면 크기 기준(미디어쿼리)을 설정
+  
+<img width="167" height="303" alt="image" src="https://github.com/user-attachments/assets/26c81706-23f5-44aa-a77a-d221f41504a5" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+  ## 6. 코드리뷰(Code Review)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **가독성**: 변수명, 함수명을 직관적으로 설정    
+- **상태 관리**: Redux Toolkit을 활용해 modal,count,product 상태관리를 하였습니다.
+<img width="410" height="249" alt="image" src="https://github.com/user-attachments/assets/3bc7bf0b-d180-4c79-8554-8cb7e6f7a049" />
+<img width="476" height="329" alt="image" src="https://github.com/user-attachments/assets/a6b16115-3033-4c1d-9508-9744550df0de" />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **API 호출 및 데이터 처리**: json파일을 직접 만들어 fetch 처리하였습니다.
+- <img width="622" height="326" alt="image" src="https://github.com/user-attachments/assets/2902fb27-d64d-400a-8dbc-446df969bc22" />
 
-### Code Splitting
+- **예외 처리**: 에러 핸들링이 충분한지 확인합니다.
+- <img width="330" height="243" alt="image" src="https://github.com/user-attachments/assets/9b852709-ca6e-4797-9ab5-b438341ae850" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
