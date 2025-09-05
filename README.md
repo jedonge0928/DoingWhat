@@ -63,7 +63,10 @@ JSON fetch API
 - <img width="622" height="326" alt="image" src="https://github.com/user-attachments/assets/2902fb27-d64d-400a-8dbc-446df969bc22" />
 
 - **예외 처리**: 에러 핸들링이 충분한지 확인합니다.
-- <img width="330" height="243" alt="image" src="https://github.com/user-attachments/assets/9b852709-ca6e-4797-9ab5-b438341ae850" />
+<img width="622" height="365" alt="image" src="https://github.com/user-attachments/assets/c598660f-a7ff-4df2-9d27-9511a2fa3351" />
+<img width="385" height="246" alt="image" src="https://github.com/user-attachments/assets/91388ff4-a364-4f1d-9461-e47c76d04e43" />
+
+
 
 
 
