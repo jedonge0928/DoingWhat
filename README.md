@@ -24,13 +24,21 @@ JSON fetch API
 
 ## 3. 폴더 구조
 /src
-  /components    # 재사용 가능한 UI 컴포넌트들 (버튼, 레이아웃 내부 요소, 모달 등 작은 단위 컴포넌트)
+
+  /components   # 재사용 가능한 UI 컴포넌트들 (버튼, 레이아웃 내부 요소, 모달 등 작은 단위 컴포넌트)
+  
   /constants    # 상수값 관리 (네비게이션 메뉴)
+  
   /data         # 샘플 데이터, 더미 데이터, JSON 형태의 제품 리스트 등 실제 데이터 모음
+  
   /layouts      # 페이지 공통 레이아웃 컴포넌트 (헤더, 푸터, 사이드바 등 페이지 전체 틀)
+  
   /store        # Redux 관련 코드 (slice, reducer, store 설정 파일 등 상태 관리 코드)
+  
   /pages        # 라우팅에 대응하는 페이지 단위 컴포넌트 (홈, 샵, 장바구니 등 주요 화면)
+  
   App.js        # 앱 최상위 컴포넌트. 라우팅 설정과 전역 Provider(스토어, 테마 등) 연결 담당
+  
   /useViewport  #반응형 디자인을 위해 화면 크기 기준(미디어쿼리)을 설정
   
 <img width="167" height="303" alt="image" src="https://github.com/user-attachments/assets/26c81706-23f5-44aa-a77a-d221f41504a5" />
