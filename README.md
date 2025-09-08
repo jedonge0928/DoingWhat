@@ -1,6 +1,6 @@
 # doing-What
 
-## 3. 사용법
+## 1. 사용법
 
 /shop 페이지에서 제품 목록 확인
 
@@ -10,7 +10,7 @@
 
 /modal 창 전역상태관리
 
-## 4. 기술 스택
+## 2. 기술 스택
 
 React
 
@@ -22,7 +22,7 @@ Bootstrap
 
 JSON fetch API
 
-## 5. 폴더 구조
+## 3. 폴더 구조
 /src
   /components    # 재사용 가능한 UI 컴포넌트들 (버튼, 레이아웃 내부 요소, 모달 등 작은 단위 컴포넌트)
   /constants    # 상수값 관리 (네비게이션 메뉴)
@@ -36,7 +36,7 @@ JSON fetch API
 <img width="167" height="303" alt="image" src="https://github.com/user-attachments/assets/26c81706-23f5-44aa-a77a-d221f41504a5" />
 
 
-  ## 6. 코드리뷰(Code Review)
+  ## 4. 코드리뷰(Code Review)
 
 - **가독성**: 변수명, 함수명을 직관적으로 설정    
 - **상태 관리**: Redux Toolkit을 활용해 modal,count,product 상태관리를 하였습니다.
