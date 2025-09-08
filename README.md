@@ -48,16 +48,23 @@ JSON fetch API
 
 - **가독성**: 변수명, 함수명을 직관적으로 설정    
 - **상태 관리**: Redux Toolkit을 활용해 modal,count,product 상태관리를 하였습니다.
+
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/881c6e6f-a68c-4354-909d-ba61730255d8" />
 
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a6b16115-3033-4c1d-9508-9744550df0de" />
 
 - **API 호출 및 데이터 처리**: json파일을 직접 만들어 fetch 처리하였습니다.
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a7faa8da-e718-4a17-871b-da06e3516770" />
+<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/c710543a-7c0d-4244-9750-a6096236d2a3" />
 
 
+- ## **상태 및 redux 연결 / 필터링 로직
+<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/f43de5e9-cf1a-44bf-968b-d960ff68b0ea" />
 
-
+-dispatch를 사용해 Redux 상태를 변경할 수 있게 준비
+-products는 Redux store에서 상품 목록을 가져오며, 값이 없으면 빈 배열을 기본값으로 설정
+-searchItem과 selectCategory는 사용자 입력에 따라 필터링에 사용
+-selectCategory가 "ALL"일 경우 모든 상품을 포함하거나, 선택된 카테고리와 일치하는 상품만 필터링
 
 
 
