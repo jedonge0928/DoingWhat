@@ -55,7 +55,8 @@ JSON fetch API
 
 - **API 호출 및 데이터 처리**: json파일을 직접 만들어 fetch 처리하였습니다.
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a7faa8da-e718-4a17-871b-da06e3516770" />
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/c710543a-7c0d-4244-9750-a6096236d2a3" />
+<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/92ffa780-2037-482b-bd8b-e49553d369ef" />
+
 
 
 - ## **상태 및 redux 연결 / 필터링 로직
