@@ -66,7 +66,7 @@ JSON fetch API
 
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/f43de5e9-cf1a-44bf-968b-d960ff68b0ea" />
 
-<br/>
+<hr/>
 
 <ul>
 <li>dispatch를 사용해 Redux 상태를 변경할 수 있게 준비</li>
