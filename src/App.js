@@ -1,4 +1,3 @@
-import React from "react";
 import MainLayout from "./layouts/MainLayout";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
@@ -15,7 +14,8 @@ import ProductQna from "./pages/shop/productMenu/ProductQna";
 
 function App() {
   return (
-    <Routes>
+
+        <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
