@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/doing-what">
+      <BrowserRouter basename="/DoingWhat">
       <ScrollTop/>
         <ThemeProvider theme={theme}>
           <App />
