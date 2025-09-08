@@ -45,7 +45,8 @@ JSON fetch API
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a6b16115-3033-4c1d-9508-9744550df0de" />
 
 - **API 호출 및 데이터 처리**: json파일을 직접 만들어 fetch 처리하였습니다.
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/45c1b483-edc5-4618-8fbf-caff06262c69" />
+<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a7faa8da-e718-4a17-871b-da06e3516770" />
+
 
 
 - **예외 처리**: 에러 핸들링이 충분한지 확인합니다.
