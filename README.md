@@ -64,18 +64,21 @@ JSON fetch API
 
 - ## **상태 및 redux 연결 / 필터링 로직
 
+<br/>
+
 <img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/f43de5e9-cf1a-44bf-968b-d960ff68b0ea" />
 
-<hr/>
+<br/>
 
 <ul>
-<li>dispatch를 사용해 Redux 상태를 변경할 수 있게 준비</li>
+  <li>dispatch를 사용해 Redux 상태를 변경할 수 있게 준비</li>
 
 <li>products는 Redux store에서 상품 목록을 가져오며, 값이 없으면 빈 배열을 기본값으로 설정</li>
 
 <li>searchItem과 selectCategory는 사용자 입력에 따라 필터링에 사용</li>
 
 <li>selectCategory가 "ALL"일 경우 모든 상품을 포함하거나, 선택된 카테고리와 일치하는 상품만 필터링</li>
+
 </ul>
 
 
