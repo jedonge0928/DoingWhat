@@ -49,10 +49,6 @@ JSON fetch API
 
 
 
-- **예외 처리**: 에러 핸들링이 충분한지 확인합니다.
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/c598660f-a7ff-4df2-9d27-9511a2fa3351" />
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/91388ff4-a364-4f1d-9461-e47c76d04e43" />
-
 
 
 
