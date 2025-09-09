@@ -88,14 +88,14 @@ JSON fetch API
 https://github.com/user-attachments/assets/cbeca9cf-f076-458d-af45-36252dd9e213
 
 
-
-
 https://github.com/user-attachments/assets/67230779-f0bb-470b-bc47-bc14939b7c75
 
 
+https://github.com/user-attachments/assets/298eb0ab-9c0c-42c9-b79d-5f6a2bee407e
 
 
-https://github.com/user-attachments/assets/15d73658-d5ef-488a-a77c-4458de5ae124
+
+
 
 
 
