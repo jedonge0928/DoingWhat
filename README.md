@@ -85,10 +85,6 @@ JSON fetch API
 ## 모아보기
 
 
-https://github.com/user-attachments/assets/6faa8a11-c8e9-4976-b3e3-b6e8975ecdb3
-
-
-
 https://github.com/user-attachments/assets/cbeca9cf-f076-458d-af45-36252dd9e213
 
 
