@@ -85,24 +85,9 @@ JSON fetch API
 ## 모아보기
 
 
+https://github.com/user-attachments/assets/42b2d28b-81fe-46f1-89d4-11e932bb56dc
 
-
-
-
-https://github.com/user-attachments/assets/c15ade41-715c-4939-82e5-42d0e1323538
-
-![React-App-Chrome-2025-09-08-16-58-34](https://github.com/user-attachments/assets/0a6b043f-4c1b-4608-9fea-30b5af3c99f9)
-
-
-https://github.com/user-attachments/assets/14d1ef6b-ef74-406c-a8ee-1fb7577600dd
-
-
-
-
-
-
-
-
+https://github.com/user-attachments/assets/f93eacab-4c04-4d1f-a05e-de151f5c00c0
 
 
 
