@@ -87,9 +87,8 @@ JSON fetch API
 
 https://github.com/user-attachments/assets/42b2d28b-81fe-46f1-89d4-11e932bb56dc
 
-https://github.com/user-attachments/assets/f93eacab-4c04-4d1f-a05e-de151f5c00c0
 
-
+![React-App-Chrome-2025-09-08-16-58-34](https://github.com/user-attachments/assets/31a37ea8-990c-48fb-aee3-130304ba324c)
 
 
 
