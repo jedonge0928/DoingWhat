@@ -46,52 +46,197 @@ JSON fetch API
 
   ## 4. 코드리뷰(Code Review)
 
-- **가독성**: 변수명, 함수명을 직관적으로 설정
-  
-- **상태 관리**: Redux Toolkit을 활용해 modal,count,product 상태관리를 하였습니다.
+## shop 페이지
 
-<br/>
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/881c6e6f-a68c-4354-909d-ba61730255d8" />
+전체 제품 목록을 조회할 수 있습니다.
 
-<br/>
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a6b16115-3033-4c1d-9508-9744550df0de" />
+각 상품 클릭 시 상세 페이지로 이동합니다.
 
-- **API 호출 및 데이터 처리**: json파일을 직접 만들어 fetch 처리하였습니다.
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/a7faa8da-e718-4a17-871b-da06e3516770" />
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/92ffa780-2037-482b-bd8b-e49553d369ef" />
+검색 입력과 카테고리 선택에 따라 상품이 필터링됩니다.
 
-<br/>
+* 검색 입력은 실시간 반영되어 즉시 결과가 업데이트됩니다.
+ 
+* 카테고리 선택 시 해당 카테고리에 속한 상품만 보여집니다.
 
-- ## **상태 및 redux 연결 / 필터링 로직
+```
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.items ?? []);
+  const [searchItem, setSearchItem] = useState("");
+  const [selectCategory, setSelectCategory] = useState("ALL");
 
-<br/>
+  const filterProducts = products.filter((item) => {
+    const matchCategory =
+      selectCategory === "ALL" || item.category === selectCategory;
 
-<img width="486" height="309" alt="image" src="https://github.com/user-attachments/assets/f43de5e9-cf1a-44bf-968b-d960ff68b0ea" />
+    const matchSearch =
+      searchItem.trim() === "" ||
+      item.product_title.toLowerCase().includes(searchItem.toLowerCase());
 
-<br/>
+    return matchCategory && matchSearch;
+  });
 
-<ul>
-  <li>dispatch를 사용해 Redux 상태를 변경할 수 있게 준비</li>
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await productsApi();
+        dispatch(setProducts(data));
+      } catch (error) {
+        alert("에러발생");
+      }
+    }
+    fetchData();
+  }, [dispatch]);
 
-<li>products는 Redux store에서 상품 목록을 가져오며, 값이 없으면 빈 배열을 기본값으로 설정</li>
+```
 
-<li>searchItem과 selectCategory는 사용자 입력에 따라 필터링에 사용</li>
+```
+   <SearchBox>
+        <SearchInput
+          type="text"
+          value={searchItem}
+          onChange={(e) => setSearchItem(e.target.value)}
+        />
+        <SearchBotton>search</SearchBotton>
+      </SearchBox>
+      <SearchCategory>
+        {shopCategory.map((item) => (
+          <CategoryItem
+            key={item.id}
+            onClick={() => setSelectCategory(item.menu)}
+            Active={selectCategory === item.menu}
+          >
+            {item.menu}
+          </CategoryItem>
+        ))}
+      </SearchCategory>
 
-<li>selectCategory가 "ALL"일 경우 모든 상품을 포함하거나, 선택된 카테고리와 일치하는 상품만 필터링</li>
+```
 
-</ul>
+
+## 상세 페이지
+
+선택한 상품의 상세 정보를 확인할 수 있습니다.
+
+사용자는 수량 조절(+) (-) 기능을 통해 원하는 개수를 설정할 수 있습니다.
+
+장바구니 담기 버튼을 통해 상품을 장바구니에 추가할 수 있습니다.
+
+```
+ const [count, setCount] = useState(1);
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const products = useSelector((state) => state.product.items ?? []);
+  const product = products.find((item) => String(item.id) === id);
+
+  if (!product) return <div>상품을 찾을 수 없습니다.</div>;
+
+  console.log(product, "Sadasdsad");
+
+  const handleAddToItem = () => {
+    dispatch(addItem({ ...product, count }));
+    dispatch(openModal());
+  };
+
+  const handleAddCount = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const handleSubCount = () => {
+    if (count <= 1) {
+      return;
+    } else {
+      setCount((prev) => prev - 1);
+    }
+  };
+
+
+```
+## cart 페이지
+
+장바구니에 담은 상품 목록을 확인할 수 있습니다.
+
+각 상품별 수량 수정 기능을 제공하여 사용자가 원하는 만큼 조절 가능합니다.
+
+상품 삭제 및 총 결제 금액 확인 기능을 제공합니다.
+
+```
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
+  const totalCount = cartItems.reduce((total, item) => total + item.count, 0);
+  const totalItemPrice = cartItems.reduce(
+    (total, item) => total + item.totalPrice,
+    0
+  );
+
+  if (cartItems.length === 0) {
+    return (
+      <CartPage>
+        <CartTitle>Cart()</CartTitle>
+        <NotInfo style={{ padding: "2rem" }}>장바구니가 비어 있습니다</NotInfo>
+      </CartPage>
+    );
+  }
+
+  const handleAddCount = (id) => {
+    dispatch(addCount({ id }));
+  };
+
+  const handleSubCount = (id) => {
+    dispatch(subCount({ id }));
+  };
+
+  const handleDelete = (id) => {
+    dispatch(deleteItem({ id }));
+  };
+
+
+```
+ ### modal 전역 상태 관리
+
+* 모달 창은 전역 상태 관리(store)를 통해 제어됩니다.
+
+* 전역 관리 방식을 채택함으로써, 중복 코드 최소화 및 유지보수 효율성을 확보했습니다.
+
+```
+import { createSlice } from "@reduxjs/toolkit";
+
+const modalSlice = createSlice({
+  name: "cartModal",
+  initialState: { isOpen: false },
+  reducers: {
+    openModal: (state) => {
+      state.isOpen = true;
+    },
+    closeModal: (state) => {
+      state.isOpen = false;
+    },
+  },
+});
+
+export const { openModal, closeModal } = modalSlice.actions;
+export default modalSlice.reducer;
+```
 
 
 ## 모아보기
 
+### MODAL
 
 https://github.com/user-attachments/assets/42b2d28b-81fe-46f1-89d4-11e932bb56dc
 
+### CATEGORY
 
+https://github.com/user-attachments/assets/8d102c68-c283-4455-813b-5b80f62a1640
 
-https://github.com/user-attachments/assets/13475e1f-5201-471e-8ef0-6b9abf012633
+### DETAIL
 
+https://github.com/user-attachments/assets/f4c2c1f6-5599-4c34-8559-8b3d76be6fba
 
+### CART
+
+https://github.com/user-attachments/assets/b190150a-50f0-4d6d-8d5f-2f132bc073cd
 
 
 
