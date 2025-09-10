@@ -88,6 +88,7 @@ JSON fetch API
   }, [dispatch]);
 
 ```
+<img width="999" height="832" alt="image" src="https://github.com/user-attachments/assets/d26f10c3-b46e-4bee-acf0-9d9e606cba7f" />
 
 ```
    <SearchBox>
@@ -150,9 +151,11 @@ JSON fetch API
       setCount((prev) => prev - 1);
     }
   };
-
-
 ```
+
+<img width="1136" height="684" alt="image" src="https://github.com/user-attachments/assets/fabfc94f-2cc7-46d5-8ec1-7380ee220736" />
+
+
 ## cart 페이지
 
 장바구니에 담은 상품 목록을 확인할 수 있습니다.
@@ -190,9 +193,11 @@ JSON fetch API
   const handleDelete = (id) => {
     dispatch(deleteItem({ id }));
   };
-
-
 ```
+
+<img width="1908" height="718" alt="image" src="https://github.com/user-attachments/assets/82f831ea-50c5-4352-aa84-4373a3b099c0" />
+
+
  ### modal 전역 상태 관리
 
 * 모달 창은 전역 상태 관리(store)를 통해 제어됩니다.
@@ -218,6 +223,7 @@ const modalSlice = createSlice({
 export const { openModal, closeModal } = modalSlice.actions;
 export default modalSlice.reducer;
 ```
+<img width="821" height="380" alt="image" src="https://github.com/user-attachments/assets/9b1b3495-28ef-4c42-8122-b59f7c168d7e" />
 
 
 ## 모아보기
