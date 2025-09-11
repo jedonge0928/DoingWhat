@@ -93,6 +93,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  function gnbScrollTop() {
+    return window.scrollTo(0,0)
+  }
   const handleLogin = () => setShowLoginModal(true);
 
   return (
@@ -102,6 +105,7 @@ export default function Header() {
           src={process.env.PUBLIC_URL + "/img/doingWhatLogo.png"}
           alt="doing-what-logo"
           style={{ width: "100px" }}
+          onClick={() => gnbScrollTop()}
         />
       </Link>
 

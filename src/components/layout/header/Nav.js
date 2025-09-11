@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { nav } from "../../../contants/navigation";
 
+
+
 const NavLayout = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -34,8 +36,14 @@ const NavItem = styled(Link)`
   }
 `;
 
+
+
 export default function Nav() {
   const location = useLocation();
+
+  function gnbScrollTop() {
+    return window.scrollTo(0,0)
+  }
 
   return (
     <NavLayout>
@@ -44,6 +52,7 @@ export default function Nav() {
           key={item.id}
           to={item.path}
           $active={location.pathname.startsWith(item.path)}
+          onClick={() => gnbScrollTop()}
         >
           {item.menu}
         </NavItem>
