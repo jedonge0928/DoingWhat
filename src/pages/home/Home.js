@@ -222,23 +222,7 @@ export default function Home() {
         쿠션 사용법은 해당 영상을 참고하세요!
       </SlideTitle>
       <YouTubeVideo>
-        <iframe
-          src={
-            process.env.PUBLIC_URL +
-            "https://www.youtube.com/embed/z7-TVimmvYI?list=TLGGUjFMOisIk_kwNTA4MjAyNQ"
-          }
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            objectFit: "cover",
-            width: "100%",
-            height: "100%",
-          }}
-        ></iframe>
+        <iframe width="1310" height="737" src="https://www.youtube.com/embed/Kv5vXEqn1co" title="큰 거 왔다..🔥 세상에 존재하지 않던 개기름 박멸하는 여름 필수템‼️(두잉왓 신제품 런칭)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </YouTubeVideo>
     </MainHome>
   );

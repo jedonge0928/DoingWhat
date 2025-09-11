@@ -5,6 +5,7 @@ const cart = createSlice({
   initialState: [],
   reducers: {
     //additem
+
     addItem(state, action) {
       const index = state.findIndex((item) => item.id === action.payload.id);
       const countAdd = Number(action.payload.count || 1);
@@ -34,18 +35,17 @@ const cart = createSlice({
     //subCount
     subCount(state, action) {
       const index = state.findIndex((item) => item.id === action.payload.id);
-      if (index !== 1) {
-        state[index].count--;
-      }
+      if (index === -1) return;
+
+      state[index].count -= 1;
 
       if (state[index].count <= 0) {
         state.splice(index, 1);
-      } else {
+         return;
+      } 
         state[index].totalPrice =
           Number(state[index].after_price) * state[index].count;
-      }
-    },
-
+      },
     //deleteitem
     deleteItem(state, action) {
       const index = state.findIndex((item) => item.id === action.payload.id);
